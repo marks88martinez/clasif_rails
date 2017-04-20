@@ -1,0 +1,76 @@
+
+
+              <!-- <h2><%= current_admin.email%></h2> -->
+                <h1 class="page-header">CATEGORIAS</h1>
+
+                <!-- <%if notice%>
+                <div class="alert alert-success alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <%=notice%>
+                </div>
+                <% end%> -->
+
+
+
+                <!-- <div class="col-lg-6"> -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                          Listando Categorias
+                          <% if policy(@admins).new?%>
+                            <%= link_to new_backoffice_admin_path, class: "btn btn-success btn-circle pull-right", style: "margin: -5px" do%>
+                            <i class="fa fa-plus "></i>
+                            <%end%>
+                          <%end%>
+
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Nombre</th>
+                                            <th>Tipo de Acesso</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                      <% @admins.each do |admin| %>
+                                        <tr>
+                                            <td><%= admin.id%></td>
+                                            <td><%= admin.name%></td>
+                                            <td><%= admin.role_i18n%></td>
+                                            <td style="width: 150px">
+                                              <%=link_to edit_backoffice_send_mail_path(admin), class: "btn btn-info btn-circle",remote: true do %>
+                                              <i class="fa fa-envelope"></i>
+                                              <%end%>
+                                              <%=link_to edit_backoffice_admin_path(admin.id), class: "btn btn-primary btn-circle" do%>
+                                              <i class="fa fa-edit"></i>
+                                              <%end%>
+                                              <% if (current_admin.id != admin.id) && policy(@admins).destroy?%>
+                                                  <%=link_to backoffice_admin_path(admin), method: :delete, class: "btn btn-danger btn-circle", data: {confirm: t('messages.confirm_with', item: admin.name)} do%>
+
+                                                  <i class="fa fa-minus"></i>
+                                                  <%end%>
+                                              <%else%>
+                                                    <%=link_to '#', class: "btn btn-danger btn-circle", disabled: "disabled" do%>
+                                                    <i class="fa fa-minus"></i>
+                                                    <%end%>
+
+                                              <%end%>
+
+                                        </tr>
+                                        <%end%>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                <!-- </div> -->
+
+                <%= render partial: "backoffice/admins/shared/send_mail"%>
