@@ -109,8 +109,12 @@ group :development do
   gem 'capistrano-rails', '~> 1.2'
   # RVM support for Capistrano v3:
   gem 'capistrano-rvm'
+  # Unicorn for Capistrano v3:
+  gem 'capistrano3-unicorn'
 
 end
 group :production do
 gem 'mysql2', '~> 0.3.18'
+# Use Unicorn as the app server
+gem 'unicorn'
 end
