@@ -22,7 +22,7 @@ class Ad < ActiveRecord::Base
     scope :to_the,->(member){ where(member: member)}
     scope :by_category,->(id, page) { where(category: id).page(page).per(QTT_PER_PAGE) }
     scope :random,->(quantity) {
-      Rails.env.production?
+      if Rails.env.production?
       limit(quantity).order("RAND()")
       else
       limit(quantity).order("RANDOM()")
