@@ -1,5 +1,15 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+
+  # Desive Config
+  config.action_mailer.default_url_options = { host: 'compareparaguay.com' }
+
+  # Mailgun Config
+    config.action_mailer.delivery_method = :mailgun
+    config.action_mailer.mailgun_settings = {
+     api_key: Rails.application.secrets.MAILGUN_SECRET_API_KEY,
+     domain: 'mg.compareparaguay.com',
+    }
   # Foreman fix
   $stdout.sync = true
   # better Errors Config
