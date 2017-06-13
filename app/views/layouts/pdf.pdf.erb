@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Shop Homepage - Start Bootstrap Template</title>
+
+    <%= wicked_pdf_stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= wicked_pdf_stylesheet_link_tag    'site', media: 'all', 'data-turbolinks-track' => true %>
+
+
+    <%= csrf_meta_tags %>
+
+</head>
+
+<body>
+  <div id="global-spin" class="loading" style="display: none">Loading&#8230;</div>
+
+
+
+    <!-- Page Content -->
+
+        <div class="row">
+
+            <div  id="home-detail"  class="col-md-9">
+        
+                <div class="row">
+                      <%= yield %>
+
+            </div> <!--  home-->
+        </div>
+
+    </div>
+    <!-- /.container -->
+
+
+  <%= wicked_pdf_javascript_include_tag 'application'%>
+  <%= wicked_pdf_javascript_include_tag 'site' %>
+
+
+
+
+</body>
+
+</html>

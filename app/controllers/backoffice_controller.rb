@@ -3,6 +3,5 @@ class BackofficeController < ApplicationController
   layout "backoffice"
   def pundit_user
     current_admin #current_user to Pundit
-
   end
 end

@@ -92,17 +92,16 @@ group :development, :test do
   gem "better_errors"
   # Generate Entity-Relationship Diagrams for Rails applications http://voormedia.github.io/rails-erd/
   gem 'rails-erd'
+  # Rack Middleware for handling Cross-Origin Resource Sharing (CORS), which makes cross-origin AJAX possible.
+  gem 'rack-cors', :require => 'rack/cors'
 
 end
 
 group :development do
   # Catches mail and serves it through a dream.
   gem'mailcatcher'
-
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-
-
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
@@ -113,6 +112,12 @@ group :development do
   gem 'capistrano-rvm'
   # Unicorn for Capistrano v3:
   gem 'capistrano3-unicorn'
+  # Prawn Handler for Rails. Handles and registers pdf formats.
+  gem 'prawn-rails'
+  gem 'wicked_pdf'
+  gem 'wkhtmltopdf-binary'
+  gem "chartkick"
+  gem 'searchkick'
 
 end
 group :production do

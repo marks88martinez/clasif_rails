@@ -3,7 +3,7 @@ class Checkout::PaymentsController < ApplicationController
     # Email: c89111588047778524052@sandbox.pagseguro.com.br
     # Senha: 4VHY0KBrmY4Y0YG8
     # Numero: 4111111111111111 / Bandeira: VISA Válido até: 12/2030 CVV: 123
-
+    # cpf 14528768860
     ad = Ad.find(params[:ad_id])
     ad.processing!
     order = Order.create(ad: ad, buyer_id: current_member.id)
@@ -12,7 +12,7 @@ class Checkout::PaymentsController < ApplicationController
     payment = PagSeguro::PaymentRequest.new
 
     payment.reference = order.id
-    payment.notification_url = root_url
+    payment.notification_url = checkout_payments_url
     payment.redirect_url = site_ad_detail_url(ad)
 
     payment.items << {
@@ -22,6 +22,7 @@ class Checkout::PaymentsController < ApplicationController
     }
     response = payment.register
     if response.errors.any?
+      puts(">>>>>>>>>>>>>>> #{response.errors.inspect}")
       ad.active!
       redirect_to site_ad_detail_path(ad), alert: "Erro ao processar compra… Entre em contato com o SAC (xx) xxx.xxxx"
     else
