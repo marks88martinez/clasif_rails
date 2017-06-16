@@ -6,6 +6,7 @@ class AdminMailer < ApplicationMailer
     mail(to: @admin.email, subject: "Seus dados foram alterados!")
   end
   def send_message(current_admin, recipient, subject, message)
+    sleep(7)
     @current_admin = current_admin
     @recipient = recipient
     @subject = subject

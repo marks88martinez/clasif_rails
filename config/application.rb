@@ -17,6 +17,7 @@ Bundler.require(*Rails.groups)
 
 module Escamboapp
   class Application < Rails::Application
+    config.active_job.queue_adapter = :sidekiq
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -32,6 +33,6 @@ module Escamboapp
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
-  
+
   end
 end

@@ -113,6 +113,7 @@ group :development do
   # Unicorn for Capistrano v3:
   gem 'capistrano3-unicorn'
   # Prawn Handler for Rails. Handles and registers pdf formats.
+  gem 'sidekiq'
   gem 'prawn-rails'
   gem 'wicked_pdf'
   gem 'wkhtmltopdf-binary'
