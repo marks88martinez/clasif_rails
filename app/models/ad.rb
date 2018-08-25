@@ -1,6 +1,6 @@
 class Ad < ActiveRecord::Base
   # gem 'searchkick'
-  searchkick
+  # searchkick
   # statuses
   enum status: [:active, :processing, :sold]
 

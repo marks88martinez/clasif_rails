@@ -5,8 +5,6 @@ class CreateProfileMembers < ActiveRecord::Migration
       t.string :second_name
       t.date :birtdate
       t.references :member, index: true, foreign_key: true
-
-
       t.timestamps null: false
     end
   end
